@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#27bdd0">
+  <meta name="description" content="MP BANK — переводы, поддержка и кастомизация под себя. Узнай больше в приложении.">
+  <title>MP BANK — твой банк</title>
+  <style>
+    :root { --blue:#27bfd1; --blue2:#36c9d8; --ink:#123444; --muted:#547481; --white:#fff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:#f5fdff; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1100px,92%); margin:auto; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:18px 0; gap:18px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.5px; }
+    .brand img { width:46px; height:46px; border-radius:14px; object-fit:cover; }
+    nav { display:flex; align-items:center; gap:24px; color:#426774; font-size:14px; font-weight:650; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:14px 20px; border-radius:14px; background:var(--blue); color:white; font-weight:800; border:0; box-shadow:0 9px 24px #27bfd133; transition:transform .18s,background .18s; cursor:pointer; }
+    .btn:hover { transform:translateY(-2px); background:#13aabd; }
+    .btn.secondary { background:white; color:#159bad; border:1px solid #b9edf2; box-shadow:none; }
+    .hero { padding:64px 0 74px; display:grid; grid-template-columns:1.08fr .92fr; gap:48px; align-items:center; }
+    .eyebrow { display:inline-flex; gap:8px; align-items:center; border:1px solid #b9edf2; background:#e8fbfd; color:#148fa0; border-radius:999px; padding:8px 12px; font-weight:800; font-size:12px; letter-spacing:.4px; }
+    h1 { font-size:clamp(42px,6vw,72px); line-height:1.02; letter-spacing:-2.5px; margin:22px 0 18px; }
+    h1 span { color:#20b6c9; }
+    .lead { color:var(--muted); font-size:18px; line-height:1.75; max-width:550px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .hint { color:#75939d; font-size:12px; margin-top:14px; }
+    .visual { position:relative; min-height:370px; display:grid; place-items:center; }
+    .glow { position:absolute; width:320px; height:320px; background:linear-gradient(135deg,#52d5e1,#b8f4f7); filter:blur(2px); border-radius:48% 52% 60% 40%; opacity:.55; }
+    .logo-card { position:relative; width:min(310px,80%); aspect-ratio:1; border-radius:38px; overflow:hidden; box-shadow:0 30px 70px #168fa52e; transform:rotate(-3deg); border:8px solid white; }
+    .logo-card img { width:100%; height:100%; object-fit:cover; display:block; }
+    .float { position:absolute; right:0; bottom:28px; background:white; border:1px solid #d7f3f6; padding:15px 18px; border-radius:18px; box-shadow:0 15px 35px #0f71851c; font-weight:800; }
+    .float small { display:block; color:#6c8b95; font-weight:600; margin-top:4px; }
+    section { padding:64px 0; }
+    .section-head { text-align:center; max-width:650px; margin:0 auto 34px; }
+    .section-head h2 { font-size:clamp(30px,4vw,42px); margin:0 0 12px; letter-spacing:-1px; }
+    .section-head p { color:var(--muted); line-height:1.7; margin:0; }
+    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .feature { background:white; border:1px solid #dff4f7; border-radius:22px; padding:25px; box-shadow:0 10px 35px #1a9db00a; }
+    .icon { width:48px; height:48px; display:grid; place-items:center; border-radius:15px; background:#e5fafc; color:#0fa9bd; font-size:24px; }
+    .feature h3 { margin:18px 0 8px; font-size:19px; }
+    .feature p { color:var(--muted); line-height:1.7; margin:0; font-size:14px; }
+    .cta { background:linear-gradient(120deg,#23b8cb,#3bcbd8); color:white; border-radius:30px; padding:44px; display:flex; align-items:center; justify-content:space-between; gap:28px; }
+    .cta h2 { font-size:clamp(28px,4vw,40px); margin:0 0 10px; letter-spacing:-1px; }
+    .cta p { margin:0; line-height:1.7; color:#e9fdff; max-width:560px; }
+    .cta .btn { background:white; color:#1197a9; box-shadow:none; flex-shrink:0; }
+    footer { padding:28px 0; color:#6c8b95; font-size:13px; }
+    .foot { display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; }
+    .foot a { color:#159bad; font-weight:750; }
+    @media(max-width:760px) {
+      nav a:not(.btn) { display:none; }
+      .hero { grid-template-columns:1fr; padding:42px 0 55px; gap:10px; }
+      .visual { min-height:300px; }
+      .glow { width:260px; height:260px; }
+      .logo-card { width:240px; }
+      .float { right:3%; bottom:14px; }
+      .features { grid-template-columns:1fr; }
+      .cta { padding:30px 24px; flex-direction:column; align-items:flex-start; }
+      section { padding:48px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" aria-label="MP BANK — главная">
+        <img src="assets/mp-bank-logo.jpg" alt="Логотип MP BANK">
+        <span>MP BANK</span>
+      </a>
+      <nav>
+        <a href="#features">Функционал</a>
+        <a href="#about">О банке</a>
+        <a class="btn" href="https://t.me/mpBankIp" target="_blank" rel="noopener noreferrer">Наш Telegram ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div>
+          <div class="eyebrow">● MP BANK · ОФИЦИАЛЬНЫЙ САЙТ</div>
+          <h1>Твой банк.<br><span>Твои правила.</span></h1>
+          <p class="lead">Знакомься с MP BANK — банком, который можно настроить под себя. Переводы, поддержка и полезные возможности в одном месте.</p>
+          <div class="actions">
+            <a class="btn" href="https://t.me/mpBankIp" target="_blank" rel="noopener noreferrer">✈ Перейти в Telegram</a>
+            <a class="btn secondary" href="#features">Узнать о функционале ↓</a>
+          </div>
+          <p class="hint">Новости, обновления и информация о скачивании — в Telegram-канале банка.</p>
+        </div>
+        <div class="visual" aria-label="Логотип MP BANK">
+          <div class="glow"></div>
+          <div class="logo-card"><img src="assets/mp-bank-logo.jpg" alt="Логотип MP BANK"></div>
+          <div class="float">MP BANK <small>Просто. Удобно. По-своему.</small></div>
+        </div>
+      </div>
+
+      <section id="features">
+        <div class="section-head">
+          <h2>Функционал</h2>
+          <p>Основные возможности MP BANK — а больше интересного узнаешь, скачав наш банк.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="icon">⇄</div>
+            <h3>Переводы</h3>
+            <p>Удобные переводы — чтобы отправлять средства быстро и без лишней суеты.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">☏</div>
+            <h3>Поддержка</h3>
+            <p>Если возникнут вопросы, можно обратиться за помощью и поддержкой.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">✦</div>
+            <h3>Кастомизация под себя</h3>
+            <p>Настраивай внешний вид и делай MP BANK удобнее именно для себя.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="cta">
+          <div>
+            <h2>Узнай больше, скачав наш банк</h2>
+            <p>Следи за новостями MP BANK в Telegram. Там можно найти обновления и информацию о доступной версии приложения.</p>
+          </div>
+          <a class="btn" href="https://t.me/mpBankIp" target="_blank" rel="noopener noreferrer">Скачать / узнать больше ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="foot">
+        <span>© 2026 MP BANK. Официальная страница проекта.</span>
+        <a href="https://t.me/mpBankIp" target="_blank" rel="noopener noreferrer">Telegram-канал ↗</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
